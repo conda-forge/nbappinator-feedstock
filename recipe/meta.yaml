@@ -1,5 +1,5 @@
 {% set name = "nbappinator" %}
-{% set version = "0.1.6" %}
+{% set version = "0.1.7" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/nbappinator-{{ version }}.tar.gz
-  sha256: dc9d3822d7e99f103958d01ddaff12c728f5c1893be9f4878d8858c6e0f8eec5
+  sha256: 9af7679fdde629b241c026cb0d5b6cbfc70692d5d33ca5723f45d9c251cc80e2
 
 build:
   noarch: python
