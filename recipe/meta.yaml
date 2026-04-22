@@ -1,3 +1,4 @@
+{% set python_min = '3.11.0' %}
 {% set name = "nbappinator" %}
 {% set version = "0.1.9" %}
 
@@ -6,22 +7,22 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/nbappinator-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/nbappinator-{{ version }}.tar.gz
   sha256: fd4857bf5b0f30c71d0a1102609c96641a6006f6be446892f79afc11cd93dfe8
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.11,<4.0
+    - python {{ python_min }}
     - poetry-core >=1.0.0
     - poetry-dynamic-versioning >=1.0.0,<2.0.0
     - pip
   run:
-    - python >=3.11.0,<4.0.0
+    - python >={{ python_min }},<4.0.0
     - plotly >=5.22.0,<6.0.0
     - ipywidgets >=8.1.3,<9.0.0
     - ipyvuetify >=1.9.4,<2.0.0
@@ -36,6 +37,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/iqmo-org/nbappinator
